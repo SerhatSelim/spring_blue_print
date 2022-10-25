@@ -1,46 +1,46 @@
-package com.core.BluePrint.Persistence.Abstracts;
+// package com.core.BluePrint.Persistence.Abstracts;
 
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.Serializable;
+// import java.io.Serializable;
 
-public abstract class AbstractHibernateDao<T extends Serializable> {
-   private Class<T> clazz;
+// public abstract class AbstractHibernateDao<T extends Serializable> {
+//    private Class<T> clazz;
 
-   @Autowired
-   SessionFactory sessionFactory;
+//    @Autowired
+//    SessionFactory sessionFactory;
 
-   public void setClazz(Class< T > clazzToSet){
-       this.clazz = clazzToSet;
-   }
+//    public void setClazz(Class< T > clazzToSet){
+//        this.clazz = clazzToSet;
+//    }
 
-   public T findOne(long id){
-       return (T) getCurrentSession().get(clazz, id);
-   }
+//    public T findOne(long id){
+//        return (T) getCurrentSession().get(clazz, id);
+//    }
 
-   public List findAll() {
-       return getCurrentSession().createQuery("from " + clazz.getName()).list();
-   }
+//    public List findAll() {
+//        return getCurrentSession().createQuery("from " + clazz.getName()).list();
+//    }
 
-   public T create(T entity) {
-       getCurrentSession().saveOrUpdate(entity);
-       return entity;
-   }
+//    public T create(T entity) {
+//        getCurrentSession().saveOrUpdate(entity);
+//        return entity;
+//    }
 
-   public T update(T entity) {
-       return (T) getCurrentSession().merge(entity);
-   }
+//    public T update(T entity) {
+//        return (T) getCurrentSession().merge(entity);
+//    }
 
-   public void delete(T entity) {
-       getCurrentSession().delete(entity);
-   }
+//    public void delete(T entity) {
+//        getCurrentSession().delete(entity);
+//    }
 
-   public void deleteById(long entityId) {
-       T entity = findOne(entityId);
-       delete(entity);
-   }
+//    public void deleteById(long entityId) {
+//        T entity = findOne(entityId);
+//        delete(entity);
+//    }
 
-   protected Session getCurrentSession() {
-       return sessionFactory.getCurrentSession();
-   }
-}
+//    protected Session getCurrentSession() {
+//        return sessionFactory.getCurrentSession();
+//    }
+// }
